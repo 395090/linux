@@ -1,0 +1,92 @@
+
+Stap 1: Apache2 installeren en configureren
+1.1 CLI openen
+Open de terminal op je openSUSE systeem.
+
+1.2 Apache2 installeren
+Voer het volgende commando uit om Apache2 te installeren:
+
+
+zypper install apache2
+1.3 Apache2-service aanzetten
+Start de Apache2-service met het volgende commando:
+
+
+systemctl start apache2
+1.4 Maak het bestand index.html in de map /srv/www/htdocs
+Maak het index.html bestand aan in de standaard web directory:
+
+
+touch /srv/www/htdocs/index.html
+1.5 Index.html bewerken met vi
+Bewerk het index.html bestand met vi:
+vi /srv/www/htdocs/index.html
+
+
+Voeg bijvoorbeeld de volgende inhoud toe:
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welkom bij Apache2 op openSUSE!</title>
+</head>
+<body>
+    <h1>Het werkt!</h1>
+    <p>Apache2 is succesvol geïnstalleerd en draait.</p>
+</body>
+</html>
+Sla de wijzigingen op en sluit vi af (ESC, typ :wq en druk op Enter).
+
+1.6 Apache2-service herstarten
+Herstart de Apache2-service om de wijzigingen door te voeren:
+
+systemctl restart apache2
+
+1.7 Config bestand controleren
+Controleer de configuratiebestanden op fouten:
+
+
+apache2ctl configtest
+Je zou een bericht moeten zien met iets als Syntax OK als er geen fouten zijn.
+
+1.8 Om te testen
+Test de installatie met een tekstbrowser of een grafische browser:
+
+Met w3m (tekstbrowser):
+
+w3m localhost
+Of open Firefox en typ in de adresbalk:
+
+
+http://localhost
+Je zou de inhoud van je index.html bestand moeten zien.
+
+Stap 2: Hostnaam wijzigen
+2.1 Voeg jouw IP-adres en website naam toe in het hosts bestand
+Open het hosts bestand om je IP-adres en website naam toe te voegen:
+
+
+vi /etc/hosts
+Voeg een regel toe zoals:
+
+
+127.0.0.1   mijnsite.localhost
+Sla de wijzigingen op en sluit vi af (ESC, typ :wq en druk op Enter).
+
+2.2 Herstart de Apache2-service
+Herstart de Apache2-service om de wijzigingen door te voeren:
+
+systemctl restart apache2
+2.3 Om te testen
+Test de nieuwe hostnaam met een tekstbrowser of een grafische browser:
+
+Met w3m (tekstbrowser):
+
+w3m mijnsite.localhost
+Of open Firefox en typ in de adresbalk:
+
+http://mijnsite.localhost
+Je zou de inhoud van je index.html bestand moeten zien.
+
+Dat is het! Met deze stappen heb je Apache2 geïnstalleerd, geconfigureerd, en getest op je openSUSE systeem.
