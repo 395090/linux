@@ -1,0 +1,36 @@
+Stappen voor installatie services:
+1. check of de service geinstalleerd is
+2. check of de service aanstaat
+3. configureren van de service
+
+Dus met samba:
+1. check of samba geinstalleerd is bijvoorbeeld met zypper (maar kan ook met yast of rpm) zypper search samba
+2. check of de service aanstaat: systemctl status smb.service (zelfde check op nmb.service)
+3. configureren van de service (met bijvoorbeeld vi, bij samba in de map /etc/samba , het bestand smb.conf)
+
+Vervolgens maken samba shares, groepen en accounts (zowel linux als samba):
+4. maak linux groepen aan
+5. maak linux gebruikers accounts aan en koppel ze aan de juiste groepen
+6. geef linux account een wachtwoord
+7. maak smb users met (zelfde) wachtwoord (als ingesteld bij overeenkomstige linux account)
+8. maak de linux mappen voor de samba shares data opslag
+9. koppel de juiste groep(en) aan de bij punt 8. gemaakte mappen
+10. maak in de configuratie file van samba de samba-shares
+11. minimaal per samba share de volgende paramaters:
+	a. comment
+	b. path
+	c. writeable
+	d. create mask
+	e. directory mask
+	eventueel nog (indien sprake van meerdere gebruikersgroepen met verschillende rechten:
+	f. valid users
+	g. write list
+	h. read list  
+12. indien meerdere groepen rechten hebben op een samba share dan nog aan de linux kant:
+	a. setfacl om meerdere groepen specifieke rechten op een map te geven
+	b. getfacl om rechten op map te checken
+13. restart de smb.service (na elke aanpassing)
+14. zet de juiste poorten open in de filewall of zet de firewall geheel uit
+15. check of het allemaal juist werkt door in windows verschillende samba-shares te verbinden.
+					
+					The End
