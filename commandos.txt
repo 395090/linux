@@ -8,7 +8,7 @@ groupadd	"groep aanmaken"
 groupadd -g	"groep aanmaken met ID"			      voorbeeld: groupadd -g 500 groepnaam
 
 chown        "map/bestand eigenaar wijzigen"                  voorbeeld: chown gebruikersnaam mapnaam
-chgrp        "groep eigenaar wijzigen                         voorbeeld: chgrp groepnaam gebruikersnaam
+chgrp        "groep map eigenaar wijzigen                         voorbeeld: chgrp groepnaam mapnaam
 usermod -aG  "gebruiker toevoegen aan een groep"              voorbeeld: usermod -aG groepnaam gebruikersnaam
 gpasswd -d   "gebruiker verwijderen uit de groep"             voorbeeld: gpasswd gebruikersnaam groepnaam
 chmod 	     "bestanden/map rechten wijzigen"	              voorbeeld: chmod 070 mapnaam                    #070 is een voorbeeld
