@@ -1,0 +1,22 @@
+Wil je meerdere gebruikers of (gebruikers)groepen rechten/toegang tot een samba share geven?
+Dan moet je twee stappen ondernemen:
+
+Stap 1:
+Zet in de samba configuratie bestand de volgende parameters:
+	valid users = <hier users of groepen (gebruik voor groepen een @)>
+	write list =  <hier users of groepen die lees en schrijf rechten hebben>
+	read list = <hier users of groepen die alleen lees rechten hebben>
+
+Stap 2:
+Voeg een extra groep aan de linux map toe:
+	setfacl om een groep toe te voegen
+	getfacl om alle groepen en users met recht op een map te zien
+
+Voorbeelden:
+
+1. een groep toevoegen met lees rechten op de map koningen:
+	setfacl -m g:prinsen:r-x koningen
+2. alle rechten opvragen van de map koningen:
+	getfacl koningen
+3. Een groep met rechten op de map koningen weghalen:
+	setfacl -x g:prinsen koningen
