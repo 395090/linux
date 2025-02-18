@@ -1,0 +1,17 @@
+FTP-Server
+---------------------------------------------------
+Check of vsftp server is geïnstalleerd. Zo niet? dan "zypper install vsftpd"
+start de server "systemctl start vsftpd"
+Zet de bestanden die je wilt benaderen op "/srv/ftp"
+Zet de firewall uit "systemctl disable firewalld.service"
+Herstart "systemctl restart vsftpd" na elke wijziging!!!
+Om rechten te wijzigen voor ftp, dat doe je in "vi /etc/vsftpd.conf"
+Als je wilt dat bepaalde user het kunnen bereiken dan doe je: "vi /etc/vsftpd.conf" Verwijder "#" teken voor de regels: chroot_local_user=YES, chroot_list_enable=YES, chroot_list_file=/etc/vsftpd.chroot_list en voeg de regel: allow_writeable_chroot=YES toe
+Vervolgens ga je naar de map /etc en maak je het bestand "touch vsftpd.chroot_list" en daar zet je de namen in
+
+
+
+Client
+---------------------------------------------------
+Installeer op de client ftp-client filezilla
+
