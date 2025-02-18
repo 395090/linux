@@ -98,4 +98,15 @@ Of open Firefox en typ in de adresbalk:
 "http://mijnsite.localhost"
 Je zou de inhoud van je index.html bestand moeten zien.
 
+-----------------------------------------------------------------
+BELANGRIJKE PUNTEN:
+Kijken of apache2 geïnstalleerd is. (zypper search apache2)
+start apache2 (systemctl start apache2.service)
+
+in "vi /etc/hosts" staan den ip adressen in en de host name (naam van je website)
+in "cd srv/www/htdocs" plaats of maak je de index.html file. Dat is de file hoe je website eruit komt te zien
+Met "w3m localhost" controleer je je website in konsole
+Met "/etc/apache2/vhosts.d" bekijk je een voorbeeld bestand. dit bestand moet je kopieren en vervangen en de naam "dummy-host.example.com" veranderen naar bijvoorbeeld "voornaam.test" de naam van je map
+Met "vi /etc/apache2/listen.conf" moet je het "#" verwijderen voor de regel NameVirtualHost *:80. Als deze regel er NIET in staat dan moet je deze toevoegen.
+
 
