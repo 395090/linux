@@ -1,0 +1,22 @@
+map kopiëren command: rsync -av "path van kopier map" "path van map waar je naartoe wilt"
+
+Crontab :
+minuten         0 - 59 
+uur van de dag  0 - 24
+dag van de maand 1 - 31
+maand van het jaar 1 - 12
+dag van de week 0 - 6 (0 = zondag)
+
+voorbeeld: 12 18 * * 0 /backup voert om 12 minuten over 6 elke zondag het script backup.sh uit dat op de root staat
+
+Crontab -e 
+
+om het elke minuut bijvoorbeeld uit te laten voeren doe je het commando: * * * * * "bestandsnaam" of met */1 * * * * "bestandsnaam"
+
+
+Scripten
+Elk script begint met #!/bin/bash
+script aan maken met vi naamvanscript.sh
+Script uitvoeren doe je met ./voorbeeld
+Script uitvoerbaar maken doe je met chmod +x naam van script.sh
+
